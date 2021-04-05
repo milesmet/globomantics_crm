@@ -5,8 +5,9 @@ python:
         - "3.7"
 services:
         - "docker"
+
 install:
-        - "pip install -r requirements.txt"
+        - "sudo pip install -r requirements.txt"
        
           #if any of these next lines fail, entire process stops          
 before script:
@@ -17,6 +18,5 @@ before script:
 
 script:
         - "sudo pytest --verbose src/test_system.py"
-
         - "sudo docker-compose down"
 ...
