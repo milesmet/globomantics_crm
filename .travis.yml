@@ -1,0 +1,22 @@
+---
+dist: "xenial"
+language: "python"
+python:
+        - "3.7"
+services:
+        - "docker"
+install:
+        - "pip install -r requirements.txt"
+       
+          #if any of these next lines fail, entire process stops          
+before script:
+        - "sudo pylint src*.py"
+        - "sudo pytest --verbose src/test_init.py"
+        - "sudo docker-compose up -d"
+        - "sudo docker container ls"
+
+script:
+        - "sudo pytest --verbose src/test_system.py"
+
+        - "sudo ocker-compose down"
+...
