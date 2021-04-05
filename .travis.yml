@@ -18,5 +18,5 @@ before script:
 script:
         - "sudo pytest --verbose src/test_system.py"
 
-        - "sudo ocker-compose down"
+        - "sudo docker-compose down"
 ...
